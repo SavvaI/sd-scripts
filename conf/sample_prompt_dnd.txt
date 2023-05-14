@@ -1,0 +1,8 @@
+# prompt 1
+fantasy character warrior --w 512 --h 512 --d 1 --l 7.5 --s 40
+fantasy character dwarf sorcerer --w 512 --h 512 --d 10 --l 7.5 --s 40
+fantasy character elf paladin --w 512 --h 512 --d 100 --l 7.5 --s 40
+fantasy character drow barbarian --w 512 --h 512 --d 1000 --l 7.5 --s 40
+fantasy character --w 512 --h 512 --d 10 --l 7.5 --s 40
+fantasy character --w 512 --h 512 --d 100 --l 7.5 --s 40
+fantasy character --w 512 --h 512 --d 1000 --l 7.5 --s 40

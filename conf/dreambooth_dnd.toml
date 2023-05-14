@@ -1,0 +1,15 @@
+enable_bucket = true
+shuffle_caption = true
+caption_extension = '.txt'
+keep_tokens = 1
+resolution = 512
+flip_aug = true
+
+random_crop = false
+color_aug = false
+
+[[datasets]]
+  [[datasets.subsets]]
+  image_dir = "/gpfs/gpfs0/savva.ignatyev/data/dnd+pathfinder+character+rpg"
+  class_tokens = 'fantasy character'
+  is_reg = false
