@@ -1,3 +1,4 @@
+[general]
 enable_bucket = true
 shuffle_caption = true
 caption_extension = '.txt'
