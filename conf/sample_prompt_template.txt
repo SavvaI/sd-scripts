@@ -1,0 +1,8 @@
+# prompt 1
+shs CASE_PROMPT --w 512 --h 512 --d 1 --l 7.5 --s 40
+shs CASE_PROMPT --w 512 --h 512 --d 10 --l 7.5 --s 40
+shs CASE_PROMPT --w 512 --h 512 --d 100 --l 7.5 --s 40
+shs CASE_PROMPT --w 512 --h 512 --d 1000 --l 7.5 --s 40
+CASE_PROMPT --w 512 --h 512 --d 10 --l 7.5 --s 20
+CASE_PROMPT --w 512 --h 512 --d 100 --l 7.5 --s 20
+CASE_PROMPT --w 512 --h 512 --d 1000 --l 7.5 --s 20

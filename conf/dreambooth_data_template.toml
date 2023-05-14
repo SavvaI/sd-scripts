@@ -1,0 +1,20 @@
+[general]
+enable_bucket = true
+resolution = 512
+flip_aug = true
+
+random_crop = false
+color_aug = false
+
+[[datasets]]
+  [[datasets.subsets]]
+  image_dir = "CASE_SK3D/dataset/CASE_NAME/tis_right/rgb/undistorted/ambient@best"
+#  '/root/project/kaust/Diffuse-Neus/public_data/sk3d/CASE_NAME/image'
+  class_tokens = 'shs CASE_PROMPT'
+  num_repeats = 5
+
+  [[datasets.subsets]]
+  is_reg = true
+  image_dir = './data/CASE_NAME_reg_sample'
+  class_tokens = 'CASE_PROMPT'
+  num_repeats = 1  
