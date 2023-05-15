@@ -12,7 +12,7 @@ python train_db.py \
     --optimizer_type="AdamW8bit" \
     --xformers \
     --mixed_precision="fp16" \
-    --train_batch_size=125 \
+    --train_batch_size=100 \
     --cache_latents \
     --gradient_checkpointing \
     --save_precision='fp16' \
