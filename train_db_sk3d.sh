@@ -49,8 +49,8 @@ python train_db.py \
     --output_dir=./checkpoints/dreambooth_${SCENE_NAME} \
     --output_name=1st_stage \
     --save_model_as=safetensors \
-    --max_train_steps=3000 \
-    --sample_every_n_steps=300 \
+    --max_train_steps=500 \
+    --sample_every_n_steps=250 \
     --learning_rate=1e-6 \
     --optimizer_type="AdamW8bit" \
     --xformers \
@@ -61,7 +61,7 @@ python train_db.py \
     --save_precision='fp16' \
     --sample_prompts=./conf/sample_prompt_${SCENE_NAME}.txt \
     --prior_loss_weight=1.0 \
-    --stop_text_encoder_training=1000
+    --stop_text_encoder_training=500
     
 python convert_diffusers20_original_sd.py ./checkpoints/dreambooth_${SCENE_NAME}/1st_stage.safetensors \
     ./checkpoints/dreambooth_${SCENE_NAME}/diffusers_models/1st_stage  \
@@ -73,8 +73,8 @@ python train_db.py \
     --output_dir=./checkpoints/dreambooth_${SCENE_NAME} \
     --output_name=2nd_stage \
     --save_model_as=safetensors \
-    --max_train_steps=4000 \
-    --sample_every_n_steps=400 \
+    --max_train_steps=500 \
+    --sample_every_n_steps=250 \
     --learning_rate=1e-6 \
     --optimizer_type="AdamW8bit" \
     --xformers \
@@ -85,7 +85,7 @@ python train_db.py \
     --save_precision='fp16' \
     --sample_prompts=./conf/sample_prompt_${SCENE_NAME}.txt \
     --prior_loss_weight=1.0 \
-    --stop_text_encoder_training=0
+    --stop_text_encoder_training=-1
     
 python convert_diffusers20_original_sd.py ./checkpoints/dreambooth_${SCENE_NAME}/2nd_stage.safetensors \
     ./checkpoints/dreambooth_${SCENE_NAME}/diffusers_models/2nd_stage  \
