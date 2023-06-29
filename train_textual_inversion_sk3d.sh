@@ -2,6 +2,9 @@ set -e
 source /opt/anaconda3/bin/activate kohya-ss
 SCENE_NAME=$1
 INIT_WORD="$2"
+LEARNING_RATE=$3
+TRAIN_STEPS=$4
+NUM_TOKENS=$5
 
 PATH_TO_CKPT=./checkpoints/model.ckpt
 #PATH_TO_SK3D=./data/sk3d
@@ -12,6 +15,9 @@ PATH_TO_SK3D=/gpfs/gpfs0/savva.ignatyev/kaust/Diffuse-Neus/public_data/sk3d
 
 echo "scene name: $SCENE_NAME"
 echo "init word: $INIT_WORD"
+echo "learning rate: $LEARNING_RATE"
+echo "train steps: $TRAIN_STEPS"
+echo "num tokens: $NUM_TOKENS"
 
 echo "Stable Diffusion checkpoint path: $PATH_TO_CKPT"
 echo "path to sk3d dataset: $PATH_TO_SK3D"
@@ -31,10 +37,10 @@ python train_textual_inversion.py \
     --output_dir=./checkpoints/textual_inversion_${SCENE_NAME} \
     --output_name=textual_inversion \
     --prior_loss_weight=0.0 \
-    --max_train_steps=1000 \
+    --max_train_steps=$TRAIN_STEPS \
     --sample_every_n_steps=1000 \
     --sample_prompts=./conf/sample_prompt_textual_inversion.txt \
-    --learning_rate=2e-3 \
+    --learning_rate=$LEARNING_RATE \
     --optimizer_type="AdamW8bit" \
     --mixed_precision="fp16" \
     --train_batch_size=5 \
@@ -42,7 +48,7 @@ python train_textual_inversion.py \
     --save_precision='fp16' \
     --token_string=shs \
     --init_word="$INIT_WORD" \
-    --num_vectors_per_token=4
+    --num_vectors_per_token=$NUM_TOKENS
     
 # python convert_diffusers20_original_sd.py ./checkpoints/textual_inversion_${SCENE_NAME}/textual_inversion.safetensors \
 #     ./checkpoints/textual_inversion_${SCENE_NAME}/diffusers_models/textual_inversion  \
