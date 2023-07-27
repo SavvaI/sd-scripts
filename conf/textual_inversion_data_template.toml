@@ -11,5 +11,5 @@ color_aug = false
 #  image_dir = "CASE_SK3D/dataset/CASE_NAME/tis_right/rgb/undistorted/ambient@best"
   image_dir = "CASE_SK3D/CASE_NAME/nobackground"
 #  '/root/project/kaust/Diffuse-Neus/public_data/sk3d/CASE_NAME/image'
-  class_tokens = 'a photo of a shs'
+  class_tokens = 'a photo of a INIT_WORD with the form of shs'
   num_repeats = 5 

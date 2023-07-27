@@ -24,9 +24,13 @@ echo "path to sk3d dataset: $PATH_TO_SK3D"
 
 
 cp -f ./conf/textual_inversion_data_template.toml ./conf/textual_inversion_data_${SCENE_NAME}.toml
+cp -f ./conf/sample_prompt_textual_inversion.txt ./conf/sample_prompt_textual_inversion_${SCENE_NAME}.txt
+
 sed -i "s/CASE_NAME/$SCENE_NAME/" ./conf/textual_inversion_data_${SCENE_NAME}.toml
 sed -i "s|CASE_SK3D|$PATH_TO_SK3D|" ./conf/textual_inversion_data_${SCENE_NAME}.toml
+sed -i "s|INIT_WORD|$INIT_WORD|" ./conf/textual_inversion_data_${SCENE_NAME}.toml
 
+sed -i "s|INIT_WORD|$INIT_WORD|" ./conf/sample_prompt_textual_inversion_${SCENE_NAME}.txt
 
 rm -rf ./checkpoints/textual_inversion_${SCENE_NAME}
 
@@ -39,7 +43,7 @@ python train_textual_inversion.py \
     --prior_loss_weight=0.0 \
     --max_train_steps=$TRAIN_STEPS \
     --sample_every_n_steps=1000 \
-    --sample_prompts=./conf/sample_prompt_textual_inversion.txt \
+    --sample_prompts=./conf/sample_prompt_textual_inversion_${SCENE_NAME}.txt \
     --learning_rate=$LEARNING_RATE \
     --optimizer_type="AdamW8bit" \
     --mixed_precision="fp16" \
@@ -49,6 +53,8 @@ python train_textual_inversion.py \
     --token_string=shs \
     --init_word="$INIT_WORD" \
     --num_vectors_per_token=$NUM_TOKENS
+    
+#     --init_word="$INIT_WORD" \
     
 # python convert_diffusers20_original_sd.py ./checkpoints/textual_inversion_${SCENE_NAME}/textual_inversion.safetensors \
 #     ./checkpoints/textual_inversion_${SCENE_NAME}/diffusers_models/textual_inversion  \

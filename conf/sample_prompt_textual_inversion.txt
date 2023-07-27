@@ -1,7 +1,7 @@
 # prompt 1
-a shs --w 512 --h 512 --d 1 --l 7.5 --s 40
-a shs --w 512 --h 512 --d 10 --l 7.5 --s 40
-a shs --w 512 --h 512 --d 100 --l 7.5 --s 40
-a photo of a shs --w 512 --h 512 --d 1 --l 7.5 --s 40
-a photo of a shs --w 512 --h 512 --d 10 --l 7.5 --s 40
-a photo of a shs --w 512 --h 512 --d 100 --l 7.5 --s 40
+a INIT_WORD with the form of shs --w 512 --h 512 --d 1 --l 7.5 --s 40
+a INIT_WORD with the form of shs --w 512 --h 512 --d 10 --l 7.5 --s 40
+a INIT_WORD with the form of shs --w 512 --h 512 --d 100 --l 7.5 --s 40
+a photo of a INIT_WORD with the form of shs --w 512 --h 512 --d 1 --l 7.5 --s 40
+a photo of a INIT_WORD with the form of shs --w 512 --h 512 --d 10 --l 7.5 --s 40
+a photo of a INIT_WORD with the form of shs --w 512 --h 512 --d 100 --l 7.5 --s 40
